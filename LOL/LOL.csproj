@@ -49,16 +49,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="AddCollegeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="AddCollegeForm.Designer.cs">
+      <DependentUpon>AddCollegeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="College_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="College_Form.Designer.cs">
+      <DependentUpon>College_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DBConnection.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="UpdateCollege.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateCollege.Designer.cs">
+      <DependentUpon>UpdateCollege.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Working_with_DB.cs" />
+    <EmbeddedResource Include="AddCollegeForm.resx">
+      <DependentUpon>AddCollegeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="College_Form.resx">
+      <DependentUpon>College_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -69,6 +86,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UpdateCollege.resx">
+      <DependentUpon>UpdateCollege.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
