@@ -49,11 +49,47 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddClass.Designer.cs">
+      <DependentUpon>AddClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddCollegeForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddCollegeForm.Designer.cs">
       <DependentUpon>AddCollegeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddLab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddLab.Designer.cs">
+      <DependentUpon>AddLab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddOther_E.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddOther_E.Designer.cs">
+      <DependentUpon>AddOther_E.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddStaff.Designer.cs">
+      <DependentUpon>AddStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddStorage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddStorage.Designer.cs">
+      <DependentUpon>AddStorage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddStuff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddStuff.Designer.cs">
+      <DependentUpon>AddStuff.cs</DependentUpon>
     </Compile>
     <Compile Include="College_Form.cs">
       <SubType>Form</SubType>
@@ -62,20 +98,83 @@
       <DependentUpon>College_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="DBConnection.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UpdateClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateClass.Designer.cs">
+      <DependentUpon>UpdateClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="UpdateCollege.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UpdateCollege.Designer.cs">
       <DependentUpon>UpdateCollege.cs</DependentUpon>
     </Compile>
+    <Compile Include="UpdateLab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateLab.Designer.cs">
+      <DependentUpon>UpdateLab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateOther_E.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateOther_E.Designer.cs">
+      <DependentUpon>UpdateOther_E.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateStaff.Designer.cs">
+      <DependentUpon>UpdateStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateStorage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateStorage.Designer.cs">
+      <DependentUpon>UpdateStorage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateStuff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateStuff.Designer.cs">
+      <DependentUpon>UpdateStuff.cs</DependentUpon>
+    </Compile>
     <Compile Include="Working_with_DB.cs" />
+    <EmbeddedResource Include="AddClass.resx">
+      <DependentUpon>AddClass.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddCollegeForm.resx">
       <DependentUpon>AddCollegeForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddLab.resx">
+      <DependentUpon>AddLab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddOther_E.resx">
+      <DependentUpon>AddOther_E.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddStaff.resx">
+      <DependentUpon>AddStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddStorage.resx">
+      <DependentUpon>AddStorage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddStuff.resx">
+      <DependentUpon>AddStuff.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="College_Form.resx">
       <DependentUpon>College_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -86,8 +185,26 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UpdateClass.resx">
+      <DependentUpon>UpdateClass.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UpdateCollege.resx">
       <DependentUpon>UpdateCollege.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateLab.resx">
+      <DependentUpon>UpdateLab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateOther_E.resx">
+      <DependentUpon>UpdateOther_E.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateStaff.resx">
+      <DependentUpon>UpdateStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateStorage.resx">
+      <DependentUpon>UpdateStorage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateStuff.resx">
+      <DependentUpon>UpdateStuff.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
