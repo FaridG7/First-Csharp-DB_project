@@ -20,6 +20,7 @@ namespace LOL
         public College_Form()
         {
             Conn = new DBConnection();
+            InitializeComponent();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -80,9 +81,12 @@ namespace LOL
 
         private void btnSelectCollege_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count > 0)
+            if (dataGridView1.SelectedRows.Count > 0)
             {
-                C_ID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+                C_ID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                MainForm asda = new MainForm(C_ID);
+                asda.Show();
+                //this.Close();
                 //Open the Ali's form
             }
             else

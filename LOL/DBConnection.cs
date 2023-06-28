@@ -17,7 +17,7 @@ namespace LOL
 
         public DBConnection()
         {
-            scnn = "Data Source = .; Initial Catalog = University_DB; Integrated Security = True";
+            scnn = "Data Source = ALI; Initial Catalog = Uneversity_DB; Integrated Security = True";
 
             try
             {
@@ -41,11 +41,11 @@ namespace LOL
             if (result == DialogResult.Yes)
             {
                 SqlCommand sqlcmd = new SqlCommand();
-                sqlcmd.CommandText = "INSERT INTO Classes(chair_count,Title,C_ID)" + 
-                    " VALUES(@chair_count, @Title, @C_ID)";
+                sqlcmd.CommandText = "INSERT INTO environment(chair_count,Title, type,C_ID)" + 
+                    " VALUES(@chair_count, @title, 1, @C_ID)";
                 sqlcmd.Connection = cnn;
                 sqlcmd.Parameters.AddWithValue("@chair_count", 0);
-                sqlcmd.Parameters.AddWithValue("@Title", Title);
+                sqlcmd.Parameters.AddWithValue("@title", Title);
                 sqlcmd.Parameters.AddWithValue("@C_ID", C_ID);
                 sqlcmd.ExecuteNonQuery();
             }
@@ -72,11 +72,12 @@ namespace LOL
             if (result == DialogResult.Yes)
             {
                 SqlCommand sqlcmd = new SqlCommand();
-                sqlcmd.CommandText = "INSERT INTO Other_Environments(chair_count,Title,C_ID)" +
-                    " VALUES(@chair_count, @Title, @C_ID)";
+                sqlcmd.CommandText = "INSERT INTO Environment(chair_count,Title,type,C_ID)" +
+                    " VALUES(@chair_count, @Title, @Type, @C_ID)";
                 sqlcmd.Connection = cnn;
                 sqlcmd.Parameters.AddWithValue("@chair_count", 0);
                 sqlcmd.Parameters.AddWithValue("@Title", Title);
+                sqlcmd.Parameters.AddWithValue("@Type", 4);
                 sqlcmd.Parameters.AddWithValue("@C_ID", C_ID);
                 sqlcmd.ExecuteNonQuery();
             }
@@ -89,8 +90,8 @@ namespace LOL
             if (result == DialogResult.Yes)
             {
                 SqlCommand sqlcmd = new SqlCommand();
-                sqlcmd.CommandText = "INSERT INTO Laboratories(chair_count,Title,C_ID)" +
-                    " VALUES(@chair_count, @Title, @C_ID)";
+                sqlcmd.CommandText = "INSERT INTO environment(chair_count,Title,type,C_ID)" +
+                    " VALUES(@chair_count, @Title, 2, @C_ID)";
                 sqlcmd.Connection = cnn;
                 sqlcmd.Parameters.AddWithValue("@chair_count", 0);
                 sqlcmd.Parameters.AddWithValue("@Title", Title);
@@ -160,13 +161,14 @@ namespace LOL
             }
         }
 
-        public void Delete_Environment(int E_ID)
+        public void Delete_Environment(int E_ID )
         {
             DialogResult result = MessageBox.Show("Are you sure?", "", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
+      
                 SqlCommand sqlcmd = new SqlCommand();
-                sqlcmd.CommandText = "DELETE FROM Other_environments Where E_ID = @E_ID";
+                sqlcmd.CommandText = "DELETE FROM other_evironments Where E_ID = @E_ID";
                 sqlcmd.Connection = cnn;
                 sqlcmd.Parameters.AddWithValue("@E_ID", E_ID);
                 sqlcmd.ExecuteNonQuery();
@@ -220,8 +222,8 @@ namespace LOL
             {
                 SqlCommand sqlcmd = new SqlCommand();
                 sqlcmd.CommandText = "UPDATE Classes " +
-                    "SET C_ID = @C_ID , Chair_count = 0, Title = @Title" +
-                    " WHERE E_ID = @E_ID";
+                    "SET C_ID = +" + @C_ID.ToString() + ", Chair_count = 0, Title =  @Title "  +
+                    " WHERE E_ID = " + @E_ID.ToString();
                 sqlcmd.Connection = cnn;
                 sqlcmd.Parameters.AddWithValue("@Title", Title);
                 sqlcmd.Parameters.AddWithValue("@C_ID", C_ID);
@@ -252,12 +254,13 @@ namespace LOL
             if (result == DialogResult.Yes)
             {
                 SqlCommand sqlcmd = new SqlCommand();
-                sqlcmd.CommandText = "UPDATE Other_Environments " +
+                sqlcmd.CommandText = "UPDATE Environment " +
                     "SET C_ID = @C_ID , Chair_count = 0, Title = @Title" +
                     " WHERE E_ID = @E_ID";
                 sqlcmd.Connection = cnn;
                 sqlcmd.Parameters.AddWithValue("@Title", Title);
                 sqlcmd.Parameters.AddWithValue("@C_ID", C_ID);
+                sqlcmd.Parameters.AddWithValue("@E_ID", E_ID);
                 sqlcmd.ExecuteNonQuery();
             }
         }
@@ -286,7 +289,7 @@ namespace LOL
             {
                 SqlCommand sqlcmd = new SqlCommand();
                 sqlcmd.CommandText = "UPDATE Staff " +
-                    "SET C_ID = @C_ID , First_name = @Firstname, Last_name = @Lastname,  phone_number = @phone_num, Meli_code = @Meli_code, Zip_code = @Zip_code" +
+                    "SET C_ID = @C_ID , First_name = @Firstname, Last_name = @Lastname,  Phone_number = @phone_num, Meli_code = @Meli_code, Zip_code = @Zip_code" +
                     " WHERE Staff_ID = @S_ID";
                 sqlcmd.Connection = cnn;
                 sqlcmd.Parameters.AddWithValue("@Firstname", Firstname);
@@ -340,7 +343,7 @@ namespace LOL
                 SqlCommand sqlcmd = new SqlCommand();
                 sqlcmd.CommandText = "UPDATE Stuff " +
                     "SET E_ID = @E_ID, Name = @Name, Health_status = @Status" +
-                    " WHERE S_ID = @S_ID";
+                    " WHERE S_ID = "+ @S_ID.ToString();
                 sqlcmd.Connection = cnn;
                 sqlcmd.Parameters.AddWithValue("@E_ID", E_ID);
                 sqlcmd.Parameters.AddWithValue("@Name", Name);
@@ -358,6 +361,35 @@ namespace LOL
                 sqlcmd.CommandText = "DELETE FROM Stuff Where S_ID = @E_ID";
                 sqlcmd.Connection = cnn;
                 sqlcmd.Parameters.AddWithValue("@E_ID", S_ID);
+                sqlcmd.ExecuteNonQuery();
+            }
+        }
+
+        public void Add_KeyHolder(int E_ID, int Staff_ID)
+        {
+
+            DialogResult result = MessageBox.Show("Are you sure?", "", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                SqlCommand sqlcmd = new SqlCommand();
+                sqlcmd.CommandText = "INSERT INTO Key_holders(E_ID, Staff_ID)" +
+                    " VALUES(@E_ID, @Staff_ID)";
+                sqlcmd.Connection = cnn;
+                sqlcmd.Parameters.AddWithValue("@E_ID", E_ID);
+                sqlcmd.Parameters.AddWithValue("@Staff_ID", Staff_ID);
+                sqlcmd.ExecuteNonQuery();
+            }
+        }
+
+        public void Delete_KeyHolder(int KH_ID)
+        {
+            DialogResult result = MessageBox.Show("Are you sure?", "", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                SqlCommand sqlcmd = new SqlCommand();
+                sqlcmd.CommandText = "DELETE FROM Key_holders Where KH_ID = @E_ID";
+                sqlcmd.Connection = cnn;
+                sqlcmd.Parameters.AddWithValue("@E_ID", KH_ID);
                 sqlcmd.ExecuteNonQuery();
             }
         }

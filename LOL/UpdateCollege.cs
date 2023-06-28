@@ -30,7 +30,7 @@ namespace LOL
             string selectsql = "SELECT * FROM non_managers";
             SqlDataAdapter adapter = new SqlDataAdapter(selectsql, conn.cnn);
             DataSet ds = new DataSet();
-            adapter.Fill(ds, "non_managers");
+            adapter.Fill(ds, "non_Managers");
             grdManagersForCollege.DataBindings.Clear();
             grdManagersForCollege.DataBindings.Add("datasource", ds, "non_managers");
             //this part fills the textbox

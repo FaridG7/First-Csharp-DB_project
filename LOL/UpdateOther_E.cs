@@ -26,8 +26,8 @@ namespace LOL
 
         private void UpdateOther_E_Load(object sender, EventArgs e)
         {
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Other_Environments c WHERE c.E_ID = "
-               + E_ID.ToString(), conn.cnn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Environment c WHERE c.E_ID = "
+               + E_ID.ToString() + "and c.Type = 4 ", conn.cnn);
             SqlDataReader r = cmd.ExecuteReader();
             if (r.Read())
             {
