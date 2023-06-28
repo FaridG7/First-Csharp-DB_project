@@ -40,9 +40,7 @@
             this.rbnDeleteLab = new System.Windows.Forms.RibbonPanel();
             this.ribbonPanel2 = new System.Windows.Forms.RibbonPanel();
             this.ribbonTab3 = new System.Windows.Forms.RibbonTab();
-            this.rbnAddStorage = new System.Windows.Forms.RibbonPanel();
             this.rbnUpdateStorage = new System.Windows.Forms.RibbonPanel();
-            this.rbnDeleteStorage = new System.Windows.Forms.RibbonPanel();
             this.ribbonPanel3 = new System.Windows.Forms.RibbonPanel();
             this.ribbonTab4 = new System.Windows.Forms.RibbonTab();
             this.ribbonPanel7 = new System.Windows.Forms.RibbonPanel();
@@ -58,6 +56,7 @@
             this.ribbonPanel13 = new System.Windows.Forms.RibbonPanel();
             this.rbnUpdateStaff = new System.Windows.Forms.RibbonPanel();
             this.rbnDeleteStaff = new System.Windows.Forms.RibbonPanel();
+            this.rbnKeyHolders = new System.Windows.Forms.RibbonPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ribbonPanel16 = new System.Windows.Forms.RibbonPanel();
             this.ribbonPanel17 = new System.Windows.Forms.RibbonPanel();
@@ -65,7 +64,9 @@
             this.ribbonPanel19 = new System.Windows.Forms.RibbonPanel();
             this.ribbonPanel20 = new System.Windows.Forms.RibbonPanel();
             this.ribbonPanel10 = new System.Windows.Forms.RibbonPanel();
-            this.rbnKeyHolders = new System.Windows.Forms.RibbonPanel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Key_holders = new System.Windows.Forms.RibbonPanel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,7 +85,7 @@
             this.rbnPanel.OrbDropDown.Size = new System.Drawing.Size(527, 72);
             this.rbnPanel.OrbDropDown.TabIndex = 0;
             this.rbnPanel.RibbonTabFont = new System.Drawing.Font("Trebuchet MS", 9F);
-            this.rbnPanel.Size = new System.Drawing.Size(1510, 117);
+            this.rbnPanel.Size = new System.Drawing.Size(1443, 117);
             this.rbnPanel.TabIndex = 0;
             this.rbnPanel.Tabs.Add(this.ribbonTab1);
             this.rbnPanel.Tabs.Add(this.ribbonTab2);
@@ -107,6 +108,7 @@
             // 
             // rbnAddClass
             // 
+            this.rbnAddClass.Image = global::LOL.Properties.Resources.add;
             this.rbnAddClass.Name = "rbnAddClass";
             this.rbnAddClass.Text = "Add";
             this.rbnAddClass.Click += new System.EventHandler(this.rbnAddClass_Click);
@@ -166,30 +168,16 @@
             // ribbonTab3
             // 
             this.ribbonTab3.Name = "ribbonTab3";
-            this.ribbonTab3.Panels.Add(this.rbnAddStorage);
             this.ribbonTab3.Panels.Add(this.rbnUpdateStorage);
-            this.ribbonTab3.Panels.Add(this.rbnDeleteStorage);
             this.ribbonTab3.Panels.Add(this.ribbonPanel3);
             this.ribbonTab3.Text = "Storage";
             this.ribbonTab3.ActiveChanged += new System.EventHandler(this.ribbonTab3_ActiveChanged);
-            // 
-            // rbnAddStorage
-            // 
-            this.rbnAddStorage.Name = "rbnAddStorage";
-            this.rbnAddStorage.Text = "Add";
-            this.rbnAddStorage.Click += new System.EventHandler(this.rbnAddStorage_Click);
             // 
             // rbnUpdateStorage
             // 
             this.rbnUpdateStorage.Name = "rbnUpdateStorage";
             this.rbnUpdateStorage.Text = "Edit";
             this.rbnUpdateStorage.Click += new System.EventHandler(this.rbnUpdateStorage_Click);
-            // 
-            // rbnDeleteStorage
-            // 
-            this.rbnDeleteStorage.Name = "rbnDeleteStorage";
-            this.rbnDeleteStorage.Text = "Delete";
-            this.rbnDeleteStorage.Click += new System.EventHandler(this.rbnDeleteStorage_Click);
             // 
             // ribbonPanel3
             // 
@@ -293,11 +281,18 @@
             this.rbnDeleteStaff.Text = "Delete";
             this.rbnDeleteStaff.Click += new System.EventHandler(this.rbnDeleteStaff_Click);
             // 
+            // rbnKeyHolders
+            // 
+            this.rbnKeyHolders.Name = "rbnKeyHolders";
+            this.rbnKeyHolders.Text = "Key Holders";
+            this.rbnKeyHolders.Click += new System.EventHandler(this.rbnKeyHolders_Click);
+            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(-12, 123);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(1510, 692);
             this.dataGridView1.TabIndex = 1;
             // 
@@ -332,17 +327,36 @@
             this.ribbonPanel10.Text = "Add";
             this.ribbonPanel10.Click += new System.EventHandler(this.ribbonPanel10_Click);
             // 
-            // rbnKeyHolders
+            // textBox1
             // 
-            this.rbnKeyHolders.Name = "rbnKeyHolders";
-            this.rbnKeyHolders.Text = "Key Holders";
-            this.rbnKeyHolders.Click += new System.EventHandler(this.rbnKeyHolders_Click);
+            this.textBox1.Location = new System.Drawing.Point(1124, 77);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(307, 20);
+            this.textBox1.TabIndex = 2;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(1074, 80);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Search:";
+            // 
+            // Key_holders
+            // 
+            this.Key_holders.Name = "Key_holders";
+            this.Key_holders.Text = "Key Holders";
+            this.Key_holders.Click += new System.EventHandler(this.Key_holders_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1510, 827);
+            this.ClientSize = new System.Drawing.Size(1443, 827);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.rbnPanel);
             this.KeyPreview = true;
@@ -352,6 +366,7 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -371,9 +386,7 @@
         private System.Windows.Forms.RibbonPanel rbnAddLab;
         private System.Windows.Forms.RibbonPanel rbnUpdateLab;
         private System.Windows.Forms.RibbonPanel rbnDeleteLab;
-        private System.Windows.Forms.RibbonPanel rbnAddStorage;
         private System.Windows.Forms.RibbonPanel rbnUpdateStorage;
-        private System.Windows.Forms.RibbonPanel rbnDeleteStorage;
         private System.Windows.Forms.RibbonPanel ribbonPanel7;
         private System.Windows.Forms.RibbonPanel rbnUpdateEnv;
         private System.Windows.Forms.RibbonPanel rbnDeleteEnv;
@@ -395,5 +408,8 @@
         private System.Windows.Forms.RibbonPanel ribbonPanel3;
         private System.Windows.Forms.RibbonPanel ribbonPanel4;
         private System.Windows.Forms.RibbonPanel rbnKeyHolders;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RibbonPanel Key_holders;
     }
 }

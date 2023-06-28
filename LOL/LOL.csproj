@@ -61,6 +61,12 @@
     <Compile Include="AddCollegeForm.Designer.cs">
       <DependentUpon>AddCollegeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddKeyHolder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddKeyHolder.Designer.cs">
+      <DependentUpon>AddKeyHolder.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddLab.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,12 +85,6 @@
     <Compile Include="AddStaff.Designer.cs">
       <DependentUpon>AddStaff.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddStorage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddStorage.Designer.cs">
-      <DependentUpon>AddStorage.cs</DependentUpon>
-    </Compile>
     <Compile Include="AddStuff.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +98,12 @@
       <DependentUpon>College_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="DBConnection.cs" />
+    <Compile Include="KeyHolders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KeyHolders.Designer.cs">
+      <DependentUpon>KeyHolders.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +161,9 @@
     <EmbeddedResource Include="AddCollegeForm.resx">
       <DependentUpon>AddCollegeForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddKeyHolder.resx">
+      <DependentUpon>AddKeyHolder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddLab.resx">
       <DependentUpon>AddLab.cs</DependentUpon>
     </EmbeddedResource>
@@ -164,14 +173,14 @@
     <EmbeddedResource Include="AddStaff.resx">
       <DependentUpon>AddStaff.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddStorage.resx">
-      <DependentUpon>AddStorage.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="AddStuff.resx">
       <DependentUpon>AddStuff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="College_Form.resx">
       <DependentUpon>College_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KeyHolders.resx">
+      <DependentUpon>KeyHolders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -184,6 +193,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="UpdateClass.resx">
       <DependentUpon>UpdateClass.cs</DependentUpon>
@@ -219,6 +229,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\add.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

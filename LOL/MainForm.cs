@@ -78,42 +78,42 @@ namespace LOL
             switch (CurrentTab)
             {
                 case "Class":
-                    adapter = new SqlDataAdapter("SELECT * FROM Classes", Connection.cnn);
+                    adapter = new SqlDataAdapter("SELECT * FROM Classes WHERE C_ID =  " + C_ID.ToString(), Connection.cnn);
                     ds = new DataSet();
                     adapter.Fill(ds, "Class");
                     dataGridView1.DataBindings.Clear();
                     dataGridView1.DataBindings.Add("datasource", ds, "Class");
                     break;
                 case "Laboratory":
-                    adapter = new SqlDataAdapter("SELECT * FROM Laboratories", Connection.cnn);
+                    adapter = new SqlDataAdapter("SELECT * FROM Laboratories  WHERE C_ID = " + C_ID.ToString(), Connection.cnn);
                     ds = new DataSet();
                     adapter.Fill(ds, "Laboratories");
                     dataGridView1.DataBindings.Clear();
                     dataGridView1.DataBindings.Add("datasource", ds, "Laboratories");
                     break;
                 case "Storage":
-                    adapter = new SqlDataAdapter("SELECT * FROM Storages", Connection.cnn);
+                    adapter = new SqlDataAdapter("SELECT * FROM Storages WHERE C_ID = " + C_ID.ToString(), Connection.cnn);
                     ds = new DataSet();
                     adapter.Fill(ds, "Storages");
                     dataGridView1.DataBindings.Clear();
                     dataGridView1.DataBindings.Add("datasource", ds, "Storages");
                     break;
                 case "Other_E":
-                    adapter = new SqlDataAdapter("SELECT * FROM Other_Evironments", Connection.cnn);
+                    adapter = new SqlDataAdapter("SELECT * FROM Other_Evironments WHERE C_ID = " + C_ID.ToString(), Connection.cnn);
                     ds = new DataSet();
                     adapter.Fill(ds, "Other_Evironments");
                     dataGridView1.DataBindings.Clear();
                     dataGridView1.DataBindings.Add("datasource", ds, "Other_Evironments");
                     break;
                 case "Stuff":
-                    adapter = new SqlDataAdapter("SELECT * FROM Stuff", Connection.cnn);
+                    adapter = new SqlDataAdapter("select * from Stuffs_veiw where C_id =" + C_ID.ToString(), Connection.cnn);
                     ds = new DataSet();
-                    adapter.Fill(ds, "Stuff");
+                    adapter.Fill(ds, "Stuffs_veiw");
                     dataGridView1.DataBindings.Clear();
-                    dataGridView1.DataBindings.Add("datasource", ds, "Stuff");
+                    dataGridView1.DataBindings.Add("datasource", ds, "Stuffs_veiw");
                     break;
                 case "Staff":
-                    adapter = new SqlDataAdapter("SELECT * FROM Staff", Connection.cnn);
+                    adapter = new SqlDataAdapter("SELECT * FROM Staff WHERE C_ID = " + C_ID.ToString(), Connection.cnn);
                     ds = new DataSet();
                     adapter.Fill(ds, "Staff");
                     dataGridView1.DataBindings.Clear();
@@ -132,7 +132,7 @@ namespace LOL
 
         private void rbnUpdateClass_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count > 0)
+            if (dataGridView1.SelectedRows.Count > 0)
             {
                 E_ID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
                 //the E_ID column should be changed
@@ -149,7 +149,7 @@ namespace LOL
 
         private void rbnDeleteClass_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count > 0)
+            if (dataGridView1.SelectedRows.Count > 0)
             {
                 E_ID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
                 //the E_ID column should be changed
@@ -171,7 +171,7 @@ namespace LOL
 
         private void rbnUpdateLab_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count > 0)
+            if (dataGridView1.SelectedRows.Count > 0)
             {
                 E_ID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
                 //the E_ID column should be changed
@@ -188,7 +188,7 @@ namespace LOL
 
         private void rbnDeleteLab_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count > 0)
+            if (dataGridView1.SelectedRows.Count > 0)
             {
                 E_ID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
                 //the E_ID column should be changed
@@ -204,15 +204,12 @@ namespace LOL
 
         private void rbnAddStorage_Click(object sender, EventArgs e)
         {
-            AddStorage Afrm = new AddStorage(C_ID, Connection);
-            Afrm.ShowDialog();
-            RefreshGrid();
 
         }
 
         private void rbnUpdateStorage_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count > 0)
+            if (dataGridView1.SelectedRows.Count > 0)
             {
                 E_ID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
                 //the E_ID column should be changed
@@ -228,7 +225,7 @@ namespace LOL
 
         private void rbnDeleteStorage_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count > 0)
+            if (dataGridView1.SelectedRows.Count > 0)
             {
                 E_ID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
                 //the E_ID column should be changed
@@ -250,7 +247,7 @@ namespace LOL
 
         private void rbnUpdateEnv_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count > 0)
+            if (dataGridView1.SelectedRows.Count > 0)
             {
                 E_ID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
                 //the E_ID column should be changed
@@ -266,7 +263,7 @@ namespace LOL
 
         private void rbnDeleteEnv_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count > 0)
+            if (dataGridView1.SelectedRows.Count > 0)
             {
                 E_ID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
                 //the E_ID column should be changed
@@ -285,7 +282,7 @@ namespace LOL
 
         private void rbnUpdateStuff_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count > 0)
+            if (dataGridView1.SelectedRows.Count > 0)
             {
                 int S_ID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
                 //the E_ID column should be checked
@@ -301,7 +298,7 @@ namespace LOL
 
         private void rbnDeleteStuff_Click_1(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count > 0)
+            if (dataGridView1.SelectedRows.Count > 0)
             {
                 int S_ID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
                 //the E_ID column should be checked
@@ -316,18 +313,18 @@ namespace LOL
 
         private void rbnDamagedStuff_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count > 0)
+            if (dataGridView1.SelectedRows.Count > 0)
             {
                 int S_ID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
                 int E_ID2;
                 string Name;
-                SqlCommand cmd = new SqlCommand("SELECT * FROM Stuff c WHERE c.S_ID = "
-                       + S_ID.ToString(), Connection.cnn);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Stuff c WHERE c.S_ID = "       + S_ID.ToString(), Connection.cnn);
                 SqlDataReader r = cmd.ExecuteReader();
                 if (r.Read())
                 {
                     E_ID2 = Convert.ToInt32(r["E_ID"]);
                     Name = r["Name"].ToString();
+                    r.Close();
                     Connection.Update_Stuff(S_ID, E_ID2,Name, 1);
                 }
                 else
@@ -346,7 +343,7 @@ namespace LOL
 
         private void rbnFixedStuff_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count > 0)
+            if (dataGridView1.SelectedRows.Count > 0)
             {
                 int S_ID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
                 int E_ID2;
@@ -358,6 +355,7 @@ namespace LOL
                 {
                     E_ID2 = Convert.ToInt32(r["E_ID"]);
                     Name = r["Name"].ToString();
+                    r.Close();
                     Connection.Update_Stuff(S_ID, E_ID2, Name, 0);
                 }
                 else
@@ -376,7 +374,7 @@ namespace LOL
 
         private void rbnAddStuffC_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count > 0)
+            if (dataGridView1.SelectedRows.Count > 0)
             {
                 E_ID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
                 //the E_ID column should be checked
@@ -392,7 +390,7 @@ namespace LOL
 
         private void ribbonPanel2_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count > 0)
+            if (dataGridView1.SelectedRows.Count > 0)
             {
                 E_ID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
                 //the E_ID column should be checked
@@ -408,7 +406,7 @@ namespace LOL
 
         private void ribbonPanel3_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count > 0)
+            if (dataGridView1.SelectedRows.Count > 0)
             {
                 E_ID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
                 //the E_ID column should be checked
@@ -425,7 +423,7 @@ namespace LOL
 
         private void ribbonPanel4_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count > 0)
+            if (dataGridView1.SelectedRows.Count > 0)
             {
                 E_ID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
                 //the E_ID column should be checked
@@ -442,7 +440,8 @@ namespace LOL
 
         private void rbnKeyHolders_Click(object sender, EventArgs e)
         {
-
+            KeyHolders Afrm = new KeyHolders(C_ID, Connection);
+            Afrm.ShowDialog();
         }
 
         private void ribbonPanel13_Click(object sender, EventArgs e)
@@ -454,10 +453,9 @@ namespace LOL
 
         private void rbnUpdateStaff_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count > 0)
+            if (dataGridView1.SelectedRows.Count > 0)
             {
                 int Staff_ID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
-                //the E_ID column should be checked
                 UpdateStaff Afrm = new UpdateStaff(C_ID, Staff_ID, Connection);
                 Afrm.ShowDialog();
                 RefreshGrid();
@@ -471,7 +469,7 @@ namespace LOL
 
         private void rbnDeleteStaff_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count > 0)
+            if (dataGridView1.SelectedRows.Count > 0)
             {
                 int Staff_ID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
                 //the Staff_ID column should be checked
@@ -482,6 +480,95 @@ namespace LOL
             {
                 MessageBox.Show("Please Select a Staff!");
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            SqlDataAdapter adapter;
+            DataSet ds;
+            SqlCommand sqlCommand;
+            SqlParameter param;
+
+            switch (CurrentTab)
+            {
+                case "Class":
+                    sqlCommand = new SqlCommand("sp_Class_search", Connection.cnn);
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    param = sqlCommand.Parameters.Add("@String", SqlDbType.VarChar);
+                    param.Value = textBox1.Text;
+                    sqlCommand.ExecuteNonQuery();
+                    adapter = new SqlDataAdapter(sqlCommand);
+                    ds = new DataSet();
+                    adapter.Fill(ds, "Class");
+                    dataGridView1.DataBindings.Clear();
+                    dataGridView1.DataBindings.Add("datasource", ds, "Class");
+                    break;
+                case "Laboratory":
+                    sqlCommand = new SqlCommand("sp_Laboratory_search", Connection.cnn);
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    param = sqlCommand.Parameters.Add("@String", SqlDbType.VarChar);
+                    param.Value = textBox1.Text;
+                    sqlCommand.ExecuteNonQuery();
+                    adapter = new SqlDataAdapter(sqlCommand);
+                    ds = new DataSet();
+                    adapter.Fill(ds, "Laboratory");
+                    dataGridView1.DataBindings.Clear();
+                    dataGridView1.DataBindings.Add("datasource", ds, "Laboratory");
+                    break;
+                case "Storage":
+                    sqlCommand = new SqlCommand("sp_Storage_search", Connection.cnn);
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    param = sqlCommand.Parameters.Add("@String", SqlDbType.VarChar);
+                    param.Value = textBox1.Text;
+                    sqlCommand.ExecuteNonQuery();
+                    adapter = new SqlDataAdapter(sqlCommand);
+                    ds = new DataSet();
+                    adapter.Fill(ds, "Storage");
+                    dataGridView1.DataBindings.Clear();
+                    dataGridView1.DataBindings.Add("datasource", ds, "Storage");
+                    break;
+                case "Other_E":
+                    sqlCommand = new SqlCommand("sp_Other_E_search", Connection.cnn);
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    param = sqlCommand.Parameters.Add("@String", SqlDbType.VarChar);
+                    param.Value = textBox1.Text;
+                    sqlCommand.ExecuteNonQuery();
+                    adapter = new SqlDataAdapter(sqlCommand);
+                    ds = new DataSet();
+                    adapter.Fill(ds, "Other_E");
+                    dataGridView1.DataBindings.Clear();
+                    dataGridView1.DataBindings.Add("datasource", ds, "Other_E");
+                    break;
+                case "Stuff":
+                    sqlCommand = new SqlCommand("sp_Stuff_search", Connection.cnn);
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    param = sqlCommand.Parameters.Add("@String", SqlDbType.VarChar);
+                    param.Value = textBox1.Text;
+                    sqlCommand.ExecuteNonQuery();
+                    adapter = new SqlDataAdapter(sqlCommand);
+                    ds = new DataSet();
+                    adapter.Fill(ds, "Stuff");
+                    dataGridView1.DataBindings.Clear();
+                    dataGridView1.DataBindings.Add("datasource", ds, "Stuff");
+                    break;
+                case "Staff":
+                    sqlCommand = new SqlCommand("sp_Staff_search", Connection.cnn);
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    param = sqlCommand.Parameters.Add("@String", SqlDbType.VarChar);
+                    param.Value = textBox1.Text;
+                    sqlCommand.ExecuteNonQuery();
+                    adapter = new SqlDataAdapter(sqlCommand);
+                    ds = new DataSet();
+                    adapter.Fill(ds, "Staff");
+                    dataGridView1.DataBindings.Clear();
+                    dataGridView1.DataBindings.Add("datasource", ds, "Staff");
+                    break;
+            }
+        }
+
+        private void Key_holders_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -45,5 +45,8 @@ namespace LOL
         void Update_Stuff(int S_ID, int E_ID, string Name, int Status);
         void Delete_Stuff(int S_ID);
 
+        void Add_KeyHolder(int E_ID, int Staff_ID);
+        void Delete_KeyHolder(int KH_ID);
+
     }
 }
